@@ -95,7 +95,7 @@ FastAPI REST Polyfilling
     
     - OS X:
     ```bash
-    pytest -v
+    pytest
     ```
 ## Design Notes
 ### Reasoning
