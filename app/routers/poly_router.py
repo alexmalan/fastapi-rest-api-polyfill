@@ -4,7 +4,7 @@ Endpoints for the poly API.
 import json
 from typing import List
 
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, HTTPException, status
 from fastapi.responses import JSONResponse
 
 from app.config import SessionLocal
@@ -12,7 +12,7 @@ from app.models import Poly
 from app.serializers import PolySerializer
 from app.services.file_management import (save_matplot_figure,
                                           save_nparray_to_file)
-from app.services.sci_polygon import fill_polygon
+from app.services.filling_service import fill_polyline
 
 # Create a new router
 router = APIRouter()
@@ -65,7 +65,7 @@ def delete_poly(poly_id: int):
     db.delete(poly_to_delete)
     db.commit()
 
-    return Response({"message": "Item deleted."}, status_code=status.HTTP_200_OK)
+    return JSONResponse({"message": "Item deleted."}, status_code=status.HTTP_200_OK)
 
 
 @router.post("/polys", status_code=status.HTTP_201_CREATED)
@@ -91,9 +91,15 @@ def create_poly(poly: PolySerializer):
             detail="Poly with that name already exists",
         )
 
+    if poly.algorithm not in ["rourke", "flood", "fast"]:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid algorithm. Pick one of: rourke, flood, fast",
+        )
+
     # process array
     poly_arr = json.loads(poly.npinput)
-    results = fill_polygon(poly.xsize, poly.ysize, poly_arr)
+    results = fill_polyline(poly_arr, poly.algorithm)
     save_file = save_nparray_to_file(results[0], poly.name)
     save_plot = save_matplot_figure(results[0], poly.name)
 
@@ -101,11 +107,12 @@ def create_poly(poly: PolySerializer):
         new_poly = Poly(
             name=poly.name,
             npinput=poly.npinput,
-            xsize=poly.xsize,
-            ysize=poly.ysize,
+            xsize=results[0].shape[0],
+            ysize=results[0].shape[1],
             imagefile=str(save_file),
             arrayfile=str(save_plot),
             exectime=results[1],
+            algorithm=poly.algorithm,
         )
         db.add(new_poly)
         db.commit()
@@ -116,6 +123,7 @@ def create_poly(poly: PolySerializer):
                 "file_url": str(save_file),
                 "plot_url": str(save_file),
                 "execution_speed": f"{str(results[1])} seconds",
+                "algorithm": poly.algorithm,
             },
             status_code=status.HTTP_201_CREATED,
         )

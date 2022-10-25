@@ -10,16 +10,17 @@ class PolySerializer(BaseModel):
     """
     Poly serializer.
     """
+
     name: str
     npinput: Optional[str]
-    xsize: Optional[int]
-    ysize: Optional[int]
     imagefile: Optional[str]
     arrayfile: Optional[str]
     exectime: Optional[float]
+    algorithm: Optional[str]
 
     class Config:
         """
         ORM mode.
         """
+
         orm_mode = True

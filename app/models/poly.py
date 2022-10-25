@@ -21,6 +21,7 @@ class Poly(Base):
     imagefile = Column(String(255), nullable=True)
     arrayfile = Column(String(255), nullable=True)
     exectime = Column(Float, nullable=True)
+    algorithm = Column(String(255), nullable=False, unique=False)
 
     def __repr__(self):
         """
