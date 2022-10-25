@@ -81,6 +81,22 @@ FastAPI REST Polyfilling
 * `app/` - Back-end code
 * `venv/` - Virtual environment files used to generate requirements;
 
+## Test
+
+- Tests are done with pytest
+- Using pytest:
+        - For following options are available:
+            - `-v` - to have verbose tests
+      
+        - Windows:
+        ```bash
+        pytest
+        ```
+        
+        - OS X:
+        ```bash
+        pytest -v
+        ```
 ## Design Notes
 ### Reasoning
 
