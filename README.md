@@ -85,18 +85,18 @@ FastAPI REST Polyfilling
 
 - Tests are done with pytest
 - Using pytest:
-        - For following options are available:
-            - `-v` - to have verbose tests
-      
-        - Windows:
-        ```bash
-        pytest
-        ```
-        
-        - OS X:
-        ```bash
-        pytest -v
-        ```
+    - For following options are available:
+        - `-v` - to have verbose tests
+    
+    - Windows:
+    ```bash
+    pytest
+    ```
+    
+    - OS X:
+    ```bash
+    pytest -v
+    ```
 ## Design Notes
 ### Reasoning
 
