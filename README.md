@@ -65,6 +65,12 @@ FastAPI REST Polyfilling
     * localhost:<port_id>/redoc/ - redoc documentation
     * localhost:<port_id>/api/v1/polys/   - endpoints
     
+## Output
+
+- The output result is stored in the /data folder in 2 formats:
+   * .npy - this is the result np.array
+   * .png - this is a plot image of the result for easier visualization
+
 ## Postman Configuration
 
 ### Library Import
