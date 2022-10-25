@@ -98,7 +98,44 @@ FastAPI REST Polyfilling
     pytest
     ```
 ## Design Notes
-### Reasoning
+### Implementation
+ - The application is implemented to test three popular algorithms and compare their performance.
+    * [Inside-Outside Algorithm](https://b-ok.cc/book/929596/f72c89)
+    * [Boundary Algorithm 4-way](https://de.wikipedia.org/wiki/Floodfill)
+    * [Scikit Draw Polygon Algorithm](https://scikit-image.org/docs/stable/api/skimage.draw.html#skimage.draw.polygon)
+
+ - The user is able to select the algorithm to use for the filling of the polyline.
+ - The records are stored in the database and the user is able to benchmark the algorithms and compare their execution time.
+
+### Algorithms
+1. Inside-Outside Algorithm
+    - The Inside-Outside Algorithm is a simple algorithm for determining whether a point is inside, outside, on the edge or on the vertice of a polygon.
+2. Boundary Algorithm 4-way
+    - This algorithm picks a point inside an object and starts to fill recursively until it hits the boundary of the object. The value of the boundary and the value that we fill should be different for this algorithm to work. Besides that you have to pick a point inside the polygon in order for it to fill the whole polygon, rather than outside.
+3. Scikit Draw Polygon Algorithm
+    - Scikit Draw Polygon Algorithm is an inside-outside algorithm that implements the code in Cython which makes it very fast and efficient even for larger arrays.
+
+### Ideal word
+- I would assume the API would be used to process X number of polylines for each height stage of a 3D printing process.
+- In order to achieve this efficiently there has to be reliability and performance involved, since we cannot wait 4 seconds for each polyline to be processed - 1mm of height - for a 20cm+ object print.
+
+### Performance
+1. Inside-Outside Algorithm - 2.549216s/execution
+2. Boundary Algorithm 4-way - 0.001539s/execution
+3. Scikit Draw Polygon Algorithm - 0.031126s/execution
+    
+- If for example we want to print 20cm height of an object for which we know the polylines of a 1mm height stage these would be the results:
+1. Inside-Outside Algorithm - 509.8432s ~ 8.48 minutes
+2. Boundary Algorithm 4-way - 0.3078s
+3. Scikit Draw Polygon Algorithm - 6.2252s
+
+* This is the time to compute the element not to print it.
+
+### Other Options
+- There are other algorithms that are popular for this use case, such as:
+1. [Scanline Algorithm](https://www.cs.rit.edu/~icss571/filling/how_to.html)
+2. [Boundary Algorithm 8-way](https://de.wikipedia.org/wiki/Floodfill)
+3. [Graph Theoretic Fill Algorithm](https://en.wikipedia.org/wiki/Flood_fill)
 
 # Logic Requirements
 ## Exercise1 (Required)
