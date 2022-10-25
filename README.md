@@ -97,6 +97,17 @@ FastAPI REST Polyfilling
     ```bash
     pytest
     ```
+
+## Loading NPY files
+
+- In order to access the actual np.array data, you need to use the `np.load()` function. This function takes a single argument, which is the path to the .npy file you want to load. It returns the data stored in the file as a numpy array.
+
+    ```bash
+    from numpy import load
+
+    data = load('data.npy')
+    print(data)
+    ```
 ## Design Notes
 ### Implementation
  - The application is implemented to test three popular algorithms and compare their performance.
