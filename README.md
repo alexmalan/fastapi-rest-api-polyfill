@@ -129,6 +129,7 @@ FastAPI REST Polyfilling
     - The Inside-Outside Algorithm is a simple algorithm for determining whether a point is inside, outside, on the edge or on the vertice of a polygon.
 2. Boundary Algorithm 4-way
     - This algorithm picks a point inside an object and starts to fill recursively until it hits the boundary of the object. The value of the boundary and the value that we fill should be different for this algorithm to work. Besides that you have to pick a point inside the polygon in order for it to fill the whole polygon, rather than outside.
+    - It is also worth mentioning that Bresenham's line algorithm is being applied first, so that the polygon has it's vertices and shape completed.
 3. Scikit Draw Polygon Algorithm
     - Scikit Draw Polygon Algorithm is an inside-outside algorithm that implements the code in Cython which makes it very fast and efficient even for larger arrays.
 
