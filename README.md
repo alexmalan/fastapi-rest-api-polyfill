@@ -32,7 +32,7 @@ FastAPI REST Polyfilling
     ```
 
 2. **Create virtual environment**
-	- You can use `virtualenv` or `venv` or conda environment for this.
+	- You can use `virtualenv` or `venv` or `conda` environment for this.
     ```bash
     python -m venv $(pwd)/venv
     source venv/bin/activate
