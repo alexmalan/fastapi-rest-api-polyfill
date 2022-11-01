@@ -128,7 +128,7 @@ FastAPI REST Polyfilling
 
 1. Python is not a fast programming language compared to others and there might be speed drawbacks when you create or implement an algorithm in pure Python.
 2. A recursive algorithm as we saw in the comparison was the fastest - simply because there was no iteration involved rather than stack usage. The drawback is that for very large operations it might have a negative impact of the memory.
-3. This one I choose simply because of convenience - the scenario when you have to implement somthing fast - assuming there are more than just one algorithms involved in the program. The underneath code is Cython, it is very easy to use, but compared to a custom made algorithm it might not perform that well - overall a good ratio of speed to implementation time.
+3. This one I choose simply because of convenience - the scenario when you have to implement something fast - assuming there are more than just one algorithms involved in the program. The underneath code is Cython, it is very easy to use, but compared to a custom made algorithm it might not perform that well - overall a good ratio of speed to implementation time.
 
 ### Implementation
  - The application is implemented to test three popular algorithms and compare their performance.
