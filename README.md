@@ -5,6 +5,10 @@ FastAPI REST Polyfilling
 -   FastAPI REST is a service that provides polylines filling.
 -   Best practices for configuration split and project structure;
 
+### Important
+-   *This is not a production-ready API but rather a proof of concept of a feature*
+-   In order to speed up the execution there might be multiple elements to be added such as multiprocessing, events, queues, and so on depending on the needs and chosen architecture.
+
 ## Code quality
 
 ### Static analysis
