@@ -119,6 +119,17 @@ FastAPI REST Polyfilling
     print(data)
     ```
 ## Design Notes
+### Reasoning
+-   In the implementation I wanted to outline 3 cases:
+   	1. The use of a Python written algorithm
+   	2. The use of a recursive algorithm
+   	3. The use of a package import
+-   Why?
+
+1. Python is not a fast programming language compared to others and there might be speed drawbacks when you create or implement an algorithm in pure Python.
+2. A recursive algorithm as we saw in the comparison was the fastest - simply because there was no iteration involved rather than stack usage. The drawback is that for very large operations it might have a negative impact of the memory.
+3. This one I choose simply because of convenience - the scenario when you have to implement somthing fast - assuming there are more than just one algorithms involved in the program. The underneath code is Cython, it is very easy to use, but compared to a custom made algorithm it might not perform that well - overall a good ratio of speed to implementation time.
+
 ### Implementation
  - The application is implemented to test three popular algorithms and compare their performance.
     * [Inside-Outside Algorithm](https://b-ok.cc/book/929596/f72c89)
@@ -142,9 +153,9 @@ FastAPI REST Polyfilling
 - In order to achieve this efficiently there has to be reliability and performance involved, since we cannot wait 4 seconds for each polyline to be processed - 1mm of height - for a 20cm+ object print.
 
 ### Performance
-1. Inside-Outside Algorithm - 2.549216s/execution
-2. Boundary Algorithm 4-way - 0.001539s/execution
-3. Scikit Draw Polygon Algorithm - 0.031126s/execution
+1. Inside-Outside Algorithm - 2.549216 sec/execution
+2. Boundary Algorithm 4-way - 0.001539 sec/execution
+3. Scikit Draw Polygon Algorithm - 0.031126 sec/execution
     
 - If for example we want to print 20cm height of an object for which we know the polylines of a 1mm height stage these would be the results:
 1. Inside-Outside Algorithm - 509.8432s ~ 8.48 minutes
