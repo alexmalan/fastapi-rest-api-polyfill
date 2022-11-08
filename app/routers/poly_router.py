@@ -10,8 +10,7 @@ from fastapi.responses import JSONResponse
 from app.config import SessionLocal
 from app.models import Poly
 from app.serializers import PolySerializer
-from app.services.file_management import (save_matplot_figure,
-                                          save_nparray_to_file)
+from app.services.file_management import save_matplot_figure, save_nparray_to_file
 from app.services.filling_service import fill_polyline
 
 # Create a new router
@@ -91,7 +90,7 @@ def create_poly(poly: PolySerializer):
             detail="Poly with that name already exists",
         )
 
-    if poly.algorithm not in ["rourke", "flood", "fast"]:
+    if poly.algorithm not in ["rourke", "flood", "fast", "scanline"]:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Invalid algorithm. Pick one of: rourke, flood, fast",
@@ -101,7 +100,7 @@ def create_poly(poly: PolySerializer):
     poly_arr = json.loads(poly.npinput)
     results = fill_polyline(poly_arr, poly.algorithm)
     save_file = save_nparray_to_file(results[0], poly.name)
-    save_plot = save_matplot_figure(results[0], poly.name)
+    save_plot = save_matplot_figure(results[0], poly.name, poly_arr)
 
     if save_file:
         new_poly = Poly(
