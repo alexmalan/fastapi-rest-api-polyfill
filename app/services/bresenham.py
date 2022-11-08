@@ -3,7 +3,7 @@ Brsenham line algorithm.
 """
 
 
-def bresenham(x0, y0, x1, y1):
+def bresenham(x0: int, y0: int, x1: int, y1: int) -> list:
     """
     Bresenham's line algorithm.
 
@@ -28,33 +28,40 @@ def bresenham(x0, y0, x1, y1):
     -------
     list
         List of points that define the line.
+
+    Raises
+    ------
+    ValueError
+        If the algorithm throws an error.
     """
+    try:
+        # calculate delta x and delta y
+        dx = x1 - x0
+        dy = y1 - y0
 
-    # calculate delta x and delta y
-    dx = x1 - x0
-    dy = y1 - y0
+        xsign = 1 if dx > 0 else -1
+        ysign = 1 if dy > 0 else -1
 
-    xsign = 1 if dx > 0 else -1
-    ysign = 1 if dy > 0 else -1
+        # get abs value of delta x and delta y
+        dx = abs(dx)
+        dy = abs(dy)
 
-    # get abs value of delta x and delta y
-    dx = abs(dx)
-    dy = abs(dy)
+        # compare delta x and delta y
+        if dx > dy:
+            xx, xy, yx, yy = xsign, 0, 0, ysign
+        else:
+            dx, dy = dy, dx
+            xx, xy, yx, yy = 0, ysign, xsign, 0
 
-    # compare delta x and delta y
-    if dx > dy:
-        xx, xy, yx, yy = xsign, 0, 0, ysign
-    else:
-        dx, dy = dy, dx
-        xx, xy, yx, yy = 0, ysign, xsign, 0
+        D = 2 * dy - dx
+        y = 0
 
-    D = 2 * dy - dx
-    y = 0
-
-    # calculate slope based on P value
-    for x in range(dx + 1):
-        yield x0 + x * xx + y * yx, y0 + x * xy + y * yy
-        if D >= 0:
-            y += 1
-            D -= 2 * dx
-        D += 2 * dy
+        # calculate slope based on P value
+        for x in range(dx + 1):
+            yield x0 + x * xx + y * yx, y0 + x * xy + y * yy
+            if D >= 0:
+                y += 1
+                D -= 2 * dx
+            D += 2 * dy
+    except Exception as e:
+        raise ValueError(f"Error in Bresenham's line algorithm: {e}")

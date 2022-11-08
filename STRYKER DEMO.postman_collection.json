@@ -1,0 +1,632 @@
+{
+	"info": {
+		"_postman_id": "6dcd93fb-e7e8-459d-a552-907a82feb207",
+		"name": "STRYKER DEMO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11323477"
+	},
+	"item": [
+		{
+			"name": "BIG",
+			"item": [
+				{
+					"name": "FAST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"big_fast\",\n    \"npinput\": \"[[19000, 4000], [18000, 9000], [17200, 8500], [10000, 8000], [9000, 5000], [9000, 2000], [9500, 1000], [10000, 2000], [13000, 1600], [13200, 2000]]\",\n    \"algorithm\": \"fast\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "KILL FLOOD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"big_flood\",\n    \"npinput\": \"[[19000, 4000], [18000, 9000], [17200, 8500], [10000, 8000], [9000, 5000], [9000, 2000], [9500, 1000], [10000, 2000], [13000, 1600], [13200, 2000]]\",\n    \"algorithm\": \"flood\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "KILL ROURKE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"big_rourke\",\n    \"npinput\": \"[[19000, 4000], [18000, 9000], [17200, 8500], [10000, 8000], [9000, 5000], [9000, 2000], [9500, 1000], [10000, 2000], [13000, 1600], [13200, 2000]]\",\n    \"algorithm\": \"rourke\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SCANLINE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"big_scanline\",\n    \"npinput\": \"[[19000, 4000], [18000, 9000], [17200, 8500], [10000, 8000], [9000, 5000], [9000, 2000], [9500, 1000], [10000, 2000], [13000, 1600], [13200, 2000]]\",\n    \"algorithm\": \"scanline\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HEART",
+			"item": [
+				{
+					"name": "FAST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"heart_fast\",\n    \"npinput\": \"[[15160, 4840], [15240, 4800], [15240, 4720], [15200, 4640], [15080, 4520], [14960, 4640], [14920, 4720], [14920, 4800], [15000, 4840], [15080, 4800]]\",\n    \"algorithm\": \"fast\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FLOOD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"heart_flood\",\n    \"npinput\": \"[[15160, 4840], [15240, 4800], [15240, 4720], [15200, 4640], [15080, 4520], [14960, 4640], [14920, 4720], [14920, 4800], [15000, 4840], [15080, 4800]]\",\n    \"algorithm\": \"flood\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ROURKE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"hearts_rourke\",\n    \"npinput\": \"[[15160, 4840], [15240, 4800], [15240, 4720], [15200, 4640], [15080, 4520], [14960, 4640], [14920, 4720], [14920, 4800], [15000, 4840], [15080, 4800]]\",\n    \"algorithm\": \"rourke\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SCANLINE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"heart_scanline\",\n    \"npinput\": \"[[15160, 4840], [15240, 4800], [15240, 4720], [15200, 4640], [15080, 4520], [14960, 4640], [14920, 4720], [14920, 4800], [15000, 4840], [15080, 4800]]\",\n    \"algorithm\": \"scanline\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CROWN",
+			"item": [
+				{
+					"name": "FAST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"crown_fast\",\n    \"npinput\": \"[[8000, 5200], [8000, 5800], [8200, 5300],[8500, 5800], [8600, 5300], [8800, 5800],[8900, 5500], [8980, 5800], [8900, 5200],[8400, 5200]]\",\n    \"algorithm\": \"fast\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "KILL FLOOD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"crown_flood\",\n    \"npinput\": \"[[8000, 5200], [8000, 5800], [8200, 5300],[8500, 5800], [8600, 5300], [8800, 5800],[8900, 5500], [8980, 5800], [8900, 5200],[8400, 5200]]\",\n    \"algorithm\": \"flood\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ROURKE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"crown_rourke\",\n    \"npinput\": \"[[8000, 5200], [8000, 5800], [8200, 5300],[8500, 5800], [8600, 5300], [8800, 5800],[8900, 5500], [8980, 5800], [8900, 5200],[8400, 5200]]\",\n    \"algorithm\": \"rourke\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SCANLINE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"crown_scanline\",\n    \"npinput\": \"[[8000, 5200], [8000, 5800], [8200, 5300],[8500, 5800], [8600, 5300], [8800, 5800],[8900, 5500], [8980, 5800], [8900, 5200],[8400, 5200]]\",\n    \"algorithm\": \"scanline\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ARROW",
+			"item": [
+				{
+					"name": "FAST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"arrow_fast\",\n    \"npinput\": \"[[8000, 5200], [8200, 5200],[8200, 5400], [8400, 5400], [8400, 5200], [8900, 5500], [8500, 5800], [8400, 5570],[8200, 5700], [8000, 5600], [8000, 5200]]\",\n    \"algorithm\": \"fast\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "KILL FLOOD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"arrow_flood\",\n    \"npinput\": \"[[8000, 5200], [8200, 5200],[8200, 5400], [8400, 5400], [8400, 5200], [8900, 5500], [8500, 5800], [8400, 5570],[8200, 5700], [8000, 5600], [8000, 5200]]\",\n    \"algorithm\": \"flood\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ROURKE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"arrow_rourke\",\n    \"npinput\": \"[[8000, 5200], [8200, 5200],[8200, 5400], [8400, 5400], [8400, 5200], [8900, 5500], [8500, 5800], [8400, 5570],[8200, 5700], [8000, 5600], [8000, 5200]]\",\n    \"algorithm\": \"rourke\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SCANLINE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"arrow_scanline\",\n    \"npinput\": \"[[8000, 5200], [8200, 5200],[8200, 5400], [8400, 5400], [8400, 5200], [8900, 5500], [8500, 5800], [8400, 5570],[8200, 5700], [8000, 5600], [8000, 5200]]\",\n    \"algorithm\": \"scanline\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/polys",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"polys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/polys",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"polys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/polys/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"polys",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/polys/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"polys",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -78,7 +78,7 @@ FastAPI REST Polyfilling
 ## Postman Configuration
 
 ### Library Import
-* Find the fastapi-rest-polylines.postman_collection.json in the root directory
+* Find the STRYKER DEMO.postman_collection.json in the root directory
 - Open Postman
    - File
       - Import
@@ -120,21 +120,24 @@ FastAPI REST Polyfilling
     ```
 ## Design Notes
 ### Reasoning
--   In the implementation I wanted to outline 3 cases:
+-   In the implementation I wanted to outline 4 cases:
    	1. The use of a Python written algorithm
    	2. The use of a recursive algorithm
    	3. The use of a package import
+    4. Use of a polyfilling algorithm that would deliver the best results even for bigger polygons
 -   Why?
 
 1. Python is not a fast programming language compared to others and there might be speed drawbacks when you create or implement an algorithm in pure Python.
 2. A recursive algorithm as we saw in the comparison was the fastest - simply because there was no iteration involved rather than stack usage. The drawback is that for very large operations it might have a negative impact of the memory.
 3. This one I choose simply because of convenience - the scenario when you have to implement something fast - assuming there are more than just one algorithms involved in the program. The underneath code is Cython, it is very easy to use, but compared to a custom made algorithm it might not perform that well - overall a good ratio of speed to implementation time.
+4. This one is the most interesting one - it is a polyfilling algorithm that is based on the scanline algorithm. It is a very fast algorithm that is used in many applications. The advantage is that it is very fast and it can be used for very large polygons.
 
 ### Implementation
  - The application is implemented to test three popular algorithms and compare their performance.
     * [Inside-Outside Algorithm](https://b-ok.cc/book/929596/f72c89)
     * [Boundary Algorithm 4-way](https://de.wikipedia.org/wiki/Floodfill)
     * [Scikit Draw Polygon Algorithm](https://scikit-image.org/docs/stable/api/skimage.draw.html#skimage.draw.polygon)
+    * [Scanline Algorithm](https://www.cs.binghamton.edu/~reckert/460/lect11_2009-areafill-transformations.pdf)
 
  - The user is able to select the algorithm to use for the filling of the polyline.
  - The records are stored in the database and the user is able to benchmark the algorithms and compare their execution time.
@@ -145,8 +148,11 @@ FastAPI REST Polyfilling
 2. Boundary Algorithm 4-way
     - This algorithm picks a point inside an object and starts to fill recursively until it hits the boundary of the object. The value of the boundary and the value that we fill should be different for this algorithm to work. Besides that you have to pick a point inside the polygon in order for it to fill the whole polygon, rather than outside.
     - It is also worth mentioning that Bresenham's line algorithm is being applied first, so that the polygon has it's vertices and shape completed.
+    - The big drawback of this algorithm is that it breaks when the polygon is too big since there is a memory limit on the stack.
 3. Scikit Draw Polygon Algorithm
     - Scikit Draw Polygon Algorithm is an inside-outside algorithm that implements the code in Cython which makes it very fast and efficient even for larger arrays.
+4. Scanline Algorithm
+    - The scanline algorithm is a very fast algorithm that is used in many applications. The advantage is that it is very fast and it can be used for very large polygons.
 
 ### Ideal word
 - I would assume the API would be used to process X number of polylines for each height stage of a 3D printing process.
@@ -156,19 +162,15 @@ FastAPI REST Polyfilling
 1. Inside-Outside Algorithm - 2.549216 sec/execution
 2. Boundary Algorithm 4-way - 0.001539 sec/execution
 3. Scikit Draw Polygon Algorithm - 0.031126 sec/execution
+4. Scanline Algorithm - 0.01787 sec/execution
     
 - If for example we want to print 20cm height of an object for which we know the polylines of a 1mm height stage these would be the results:
 1. Inside-Outside Algorithm - 509.8432s ~ 8.48 minutes
-2. Boundary Algorithm 4-way - 0.3078s
-3. Scikit Draw Polygon Algorithm - 6.2252s
+2. Boundary Algorithm 4-way - 0.3078 sec
+3. Scikit Draw Polygon Algorithm - 6.2252 sec
+4. Scanline Algorithm - 3.54 sec
 
 * This is the time to compute the element not to print it.
-
-### Other Options
-- There are other algorithms that are popular for this use case, such as:
-1. [Scanline Algorithm](https://www.cs.rit.edu/~icss571/filling/how_to.html)
-2. [Boundary Algorithm 8-way](https://de.wikipedia.org/wiki/Floodfill)
-3. [Graph Theoretic Fill Algorithm](https://en.wikipedia.org/wiki/Flood_fill)
 
 # Logic Requirements
 ## Exercise1 (Required)

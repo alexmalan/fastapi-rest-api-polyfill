@@ -10,7 +10,7 @@ from numpy import save
 from .utils import arr_to_x_y
 
 
-def save_nparray_to_file(nparray: "nparray", filename: str):
+def save_nparray_to_file(nparray: "nparray", filename: str) -> str:
     """
     Save numpy array to file.
 
@@ -20,6 +20,16 @@ def save_nparray_to_file(nparray: "nparray", filename: str):
         Numpy array to save.
     filename : str
         The filename to save the numpy array to.
+
+    Returns
+    -------
+    loc_path : str
+        The path to the saved file.
+
+    Raises
+    ------
+    ValueError
+        If the file could not be saved.
     """
     try:
         loc_path = Path(__file__).parents[1] / f"data/{filename}"
@@ -29,11 +39,11 @@ def save_nparray_to_file(nparray: "nparray", filename: str):
         loc_path = loc_path.with_suffix(".npy")
 
         return loc_path
-    except:
-        raise ValueError("Something went wrong saving the file. Please try again.")
+    except Exception as e:
+        raise ValueError(f"Something went wrong saving the file. Please try again. Message: {e}")
 
 
-def save_matplot_figure(nparr: "nparray", filename: str, points: list):
+def save_matplot_figure(nparr: "nparray", filename: str, points: list) -> str:
     """
     Save matplotlib figure to file.
 
@@ -43,6 +53,18 @@ def save_matplot_figure(nparr: "nparray", filename: str, points: list):
         Numpy array to save.
     filename : str
         The filename to save the plot to.
+    points : list
+        List of points to plot.
+
+    Returns
+    -------
+    loc_path : str
+        The path to the saved file.
+    
+    Raises
+    ------
+    ValueError
+        If the file could not be saved.
     """
     try:
         loc_path = Path(__file__).parents[1] / f"data/{filename}-plot.png"
@@ -68,5 +90,5 @@ def save_matplot_figure(nparr: "nparray", filename: str, points: list):
         plt.close()
 
         return loc_path
-    except:
-        raise ValueError("Something went wrong saving the file. Please try again.")
+    except Exception as e:
+        raise ValueError(f"Something went wrong saving the file. Please try again. Message: {e}")
