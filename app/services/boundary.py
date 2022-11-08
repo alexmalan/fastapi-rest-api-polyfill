@@ -49,4 +49,6 @@ def flood_fill_4(x: int, y: int, old: int, new: int, arr: "nparray") -> "nparray
         flood_fill_4(x, y + 1, old, new, arr)
         flood_fill_4(x, y - 1, old, new, arr)
     except Exception as e:
-        raise ValueError(f"Something went wrong filling the polygon. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong filling the polygon. Please try again. Message: {e}"
+        )

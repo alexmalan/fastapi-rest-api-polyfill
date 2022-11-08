@@ -40,7 +40,9 @@ def save_nparray_to_file(nparray: "nparray", filename: str) -> str:
 
         return loc_path
     except Exception as e:
-        raise ValueError(f"Something went wrong saving the file. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong saving the file. Please try again. Message: {e}"
+        )
 
 
 def save_matplot_figure(nparr: "nparray", filename: str, points: list) -> str:
@@ -60,7 +62,7 @@ def save_matplot_figure(nparr: "nparray", filename: str, points: list) -> str:
     -------
     loc_path : str
         The path to the saved file.
-    
+
     Raises
     ------
     ValueError
@@ -91,4 +93,6 @@ def save_matplot_figure(nparr: "nparray", filename: str, points: list) -> str:
 
         return loc_path
     except Exception as e:
-        raise ValueError(f"Something went wrong saving the file. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong saving the file. Please try again. Message: {e}"
+        )

@@ -6,7 +6,9 @@ import math
 import numpy as np
 
 
-def point_in_polygons(column_points: "nparray", row_points: "nparray", column_i: int, row_i: int) -> int:
+def point_in_polygons(
+    column_points: "nparray", row_points: "nparray", column_i: int, row_i: int
+) -> int:
     """
     Test relative point position to a polygon.
 
@@ -29,7 +31,7 @@ def point_in_polygons(column_points: "nparray", row_points: "nparray", column_i:
         1: inside.
         2: vertex.
         3: edge.
-    
+
     Raises
     ------
     ValueError

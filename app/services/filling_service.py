@@ -2,9 +2,9 @@
 Polygon filling service.
 """
 from datetime import datetime
+from typing import Tuple
 
 import numpy as np
-from typing import Tuple
 
 from .boundary import flood_fill_4
 from .bresenham import bresenham
@@ -14,7 +14,9 @@ from .skdraw import fill_polygon_fast
 from .utils import arr_to_x_y
 
 
-def fill_polyline(polygon_points: list, algorithm: str, flood_x: int=None, flood_y: int=None) -> Tuple["nparray", float]:
+def fill_polyline(
+    polygon_points: list, algorithm: str, flood_x: int = None, flood_y: int = None
+) -> Tuple["nparray", float]:
     """
     Method for handling algorithm selection.
 
@@ -59,7 +61,7 @@ def fill_polyline(polygon_points: list, algorithm: str, flood_x: int=None, flood
             execution_time = (end_time - start_time).total_seconds()
 
             return (result, execution_time)
-        elif algorithm == "flood":
+        if algorithm == "flood":
             start_time = datetime.now()
             fill_points = []
             polygon_points.append(polygon_points[0])
@@ -103,7 +105,8 @@ def fill_polyline(polygon_points: list, algorithm: str, flood_x: int=None, flood
             end_time = datetime.now()
             execution_time = (end_time - start_time).total_seconds()
             return (nparr, execution_time)
-        else:
-            raise ValueError(f"Invalid algorithm.")
+        raise ValueError("Invalid algorithm.")
     except Exception as e:
-        raise ValueError(f"Something went wrong filling the polygon. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong filling the polygon. Please try again. Message: {e}"
+        )

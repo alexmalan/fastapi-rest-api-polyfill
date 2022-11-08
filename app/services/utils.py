@@ -12,12 +12,12 @@ def bubblesort(arr: list) -> list:
     ----------
     arr : list
         Array to sort.
-    
+
     Returns
     -------
     list
         Sorted array.
-    
+
     Raises
     ------
     ValueError
@@ -31,7 +31,10 @@ def bubblesort(arr: list) -> list:
                     arr[j] = arr[j + 1]
                     arr[j + 1] = temp
     except Exception as e:
-        raise ValueError(f"Something went wrong sorting the array. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong sorting the array. Please try again. Message: {e}"
+        )
+
 
 def arr_to_x_y(arr: list) -> list and list:
     """
@@ -48,7 +51,7 @@ def arr_to_x_y(arr: list) -> list and list:
         Array of points y.
     columns : list
         Array of points x.
-    
+
     Raises
     ------
     ValueError
@@ -64,4 +67,6 @@ def arr_to_x_y(arr: list) -> list and list:
 
         return rows, columns
     except Exception as e:
-        raise ValueError(f"Something went wrong transforming the array. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong transforming the array. Please try again. Message: {e}"
+        )

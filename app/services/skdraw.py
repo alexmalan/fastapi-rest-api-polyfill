@@ -33,4 +33,6 @@ def fill_polygon_fast(nparr: "nparray", rows: list, columns: list) -> "nparray":
 
         return nparr
     except Exception as e:
-        raise ValueError(f"Something went wrong filling the polygon. Please try again. Message: {e}")
+        raise ValueError(
+            f"Something went wrong filling the polygon. Please try again. Message: {e}"
+        )

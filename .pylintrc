@@ -7,8 +7,7 @@ profile=no
 ignore=.git,migrations,tests
 
 [MESSAGES CONTROL]
-disable=E1101, R0903, C0103, E0015, R1718, W0707, C0301, E1124, C0200, R1705, R0914, R0912, W0612, R0913, W0612, R1710
-
+disable= W0612, R0913, W0612, R1710, R1702, C0103, W0707, C0200, R0914, E0015, R0903, R0912, E1124, C0301
 [FORMAT]
 
 # Maximum number of characters on a single line.

@@ -53,10 +53,11 @@ def bresenham(x0: int, y0: int, x1: int, y1: int) -> list:
             dx, dy = dy, dx
             xx, xy, yx, yy = 0, ysign, xsign, 0
 
+        # calculate decision parameter D
         D = 2 * dy - dx
         y = 0
 
-        # calculate slope based on P value
+        # calculate slope based on D value
         for x in range(dx + 1):
             yield x0 + x * xx + y * yx, y0 + x * xy + y * yy
             if D >= 0:
