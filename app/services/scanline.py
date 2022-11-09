@@ -255,7 +255,7 @@ def polyfill(TA: EdgeTable) -> list:
                 for node in removeList:
                     TAA.remove(node)
 
-                # bubble sort
+                # bubble sort on x_min value
                 bubblesort(TAA)
 
                 # c) Pick coordinates to fill in the desired pixels on the

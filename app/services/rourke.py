@@ -61,7 +61,10 @@ def point_in_polygons(
             y0 = row_points[vertice] - row_i
 
             if (-eps < x0 < eps) and (-eps < y0 < eps):
-                # it is a vertex with an eps tolerance
+                # it is a vertex with an eps tolerance.
+                # if the point is a vertex, it is inside the polygon
+                # and you check if the point is on the same point so to speak
+                # that is why the tolerance is used
                 return 2
 
             # if e straddles the x-axis
@@ -83,7 +86,8 @@ def point_in_polygons(
             return 3
 
         if r_cross & 1:
-            # inside if odd number of crossings
+            # inside if odd number of crossings.
+            # if r_cross is odd, this will be true
             return 1
 
         # outside if even number of crossings
@@ -138,6 +142,7 @@ def fill_polyline_rourke(row: list, column: list, nparr: "nparray") -> "nparray"
         # verify points in polygon
         for row_i in range(min_row, max_row + 1):
             for column_i in range(min_column, max_column + 1):
+                # valid for 1, 2, 3
                 if point_in_polygons(column_points, row_points, column_i, row_i):
                     row_coord_output.append(row_i)
                     column_coord_output.append(column_i)
